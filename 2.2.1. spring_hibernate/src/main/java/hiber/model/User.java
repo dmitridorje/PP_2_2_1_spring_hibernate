@@ -22,11 +22,9 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @MapsId
    @OneToOne
-   //(cascade = CascadeType.ALL)
+   @MapsId
    @JoinColumn(name = "car_id")
-//   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    private Car car;
 
    public User() {}
