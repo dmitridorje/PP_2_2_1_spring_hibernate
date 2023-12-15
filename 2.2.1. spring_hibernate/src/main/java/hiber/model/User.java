@@ -22,8 +22,11 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(mappedBy = "user")
-   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @MapsId
+   @OneToOne
+   //(cascade = CascadeType.ALL)
+   @JoinColumn(name = "car_id")
+//   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    private Car car;
 
    public User() {}
@@ -39,7 +42,6 @@ public class User {
       this.lastName = lastName;
       this.email = email;
       this.car = car;
-      car.setUser(this);
    }
 
    public Long getId() {
@@ -80,7 +82,6 @@ public class User {
 
    public void setCar(Car car) {
       this.car = car;
-      car.setUser(this);
    }
 
    @Override
