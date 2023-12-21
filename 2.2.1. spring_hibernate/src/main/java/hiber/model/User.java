@@ -81,10 +81,13 @@ public class User {
 
    @Override
    public String toString() {
+      String myCarDetails = this.getCar() == null ? "Doesn't have a car yet"
+              : "car = " + car.getModel() + ", " + car.getSeries();
+
       return "id = " + id + "\n" +
               "First Name = " + firstName + "\n" +
               "Last Name = " + lastName + "\n" +
               "Email = " + email + "\n" +
-              "car = " + car.getModel() + ", " + car.getSeries();
+              myCarDetails + "\n";
    }
 }
